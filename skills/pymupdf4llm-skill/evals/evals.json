@@ -1,0 +1,23 @@
+{
+  "skill_name": "pymupdf4llm",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I have a research paper called 'neural_networks.pdf' in my downloads folder. Can you extract the text from it so I can analyze the methodology section?",
+      "expected_output": "Should extract the PDF to Markdown format, check if pymupdf4llm is installed, and provide the extracted text in a readable format",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I need to process all the PDF files in my 'documents/reports/' directory and convert them to markdown for my RAG system. There are about 15 files.",
+      "expected_output": "Should use the batch_convert.py script or implement batch processing, handle all PDFs in the directory, provide progress updates, and save markdown files",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Can you extract just pages 5-10 from 'technical_manual.pdf'? I only need the installation section.",
+      "expected_output": "Should use page selection feature with pages=[4,5,6,7,8,9] (0-based), extract only those pages, and provide the markdown output",
+      "files": []
+    }
+  ]
+}
