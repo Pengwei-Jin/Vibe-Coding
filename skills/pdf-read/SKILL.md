@@ -1,9 +1,9 @@
 ---
-name: pymupdf4llm
+name: pdf-read
 description: Extract and convert PDF content to Markdown format optimized for LLM and RAG applications using pymupdf4llm. Use this skill when users need to extract text from PDFs, convert PDFs to Markdown, prepare PDF content for LLM processing, work with RAG systems, or mention pymupdf4llm. Also trigger when users want to process academic papers, documentation, reports, or any PDF documents for AI consumption.
 ---
 
-# PyMuPDF4LLM Skill
+# PDF Read Skill
 
 This skill helps you work with PDF documents using the pymupdf4llm library, which is specifically designed to extract and format PDF content for Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG) systems.
 

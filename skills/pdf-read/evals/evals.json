@@ -1,5 +1,5 @@
 {
-  "skill_name": "pymupdf4llm",
+  "skill_name": "pdf-read",
   "evals": [
     {
       "id": 1,

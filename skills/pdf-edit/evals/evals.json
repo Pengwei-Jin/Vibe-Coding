@@ -1,0 +1,23 @@
+{
+  "skill_name": "pdf-edit",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I have three PDF files: part1.pdf, part2.pdf, and part3.pdf. Can you merge them into a single file called combined.pdf?",
+      "expected_output": "Should use PyMuPDF to merge the three PDFs in order using insert_pdf(), save as combined.pdf, and report the total page count",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I need to add a 'CONFIDENTIAL' watermark to every page of my report.pdf file.",
+      "expected_output": "Should use PyMuPDF to add diagonal semi-transparent text watermark 'CONFIDENTIAL' to each page and save to a new file",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Can you encrypt my document.pdf with a password so only authorized people can open it?",
+      "expected_output": "Should use PyMuPDF with AES-256 encryption, set user and owner passwords, configure appropriate permissions, and save the encrypted file",
+      "files": []
+    }
+  ]
+}

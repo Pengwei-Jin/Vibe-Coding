@@ -1,11 +1,11 @@
-# PyMuPDF4LLM Skill
+# PDF Read Skill
 
 A skill for extracting and converting PDF content to Markdown format using pymupdf4llm, optimized for LLM and RAG applications.
 
 ## Structure
 
 ```
-pymupdf4llm-skill/
+pdf-read/
 ├── SKILL.md                    # Main skill documentation
 ├── scripts/                    # Helper scripts
 │   ├── batch_convert.py       # Batch convert PDFs to Markdown
