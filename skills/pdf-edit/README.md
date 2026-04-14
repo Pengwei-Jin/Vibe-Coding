@@ -10,6 +10,7 @@ pdf-edit/
 ├── scripts/                    # Helper scripts
 │   ├── merge_pdfs.py          # Merge multiple PDFs
 │   ├── add_watermark.py       # Add text/image watermark
+│   ├── highlight_text.py      # Highlight text with comments
 │   └── validate_install.py    # Validate installation
 ├── references/                 # Reference documentation
 │   ├── api_reference.md       # API documentation
@@ -39,6 +40,13 @@ python scripts/merge_pdfs.py file1.pdf file2.pdf -o merged.pdf
 python scripts/add_watermark.py input.pdf -t "CONFIDENTIAL" -o watermarked.pdf
 ```
 
+### Highlight Text
+
+```bash
+python scripts/highlight_text.py input.pdf -t "error" -o highlighted.pdf
+python scripts/highlight_text.py input.pdf -t "error" -c "Fix this" -o annotated.pdf
+```
+
 ### Edit in Python
 
 ```python
@@ -59,6 +67,7 @@ doc.close()
 - Add text or image watermarks
 - Insert text, images, and graphics
 - Encrypt and decrypt PDFs
+- Add highlights and comments/annotations
 - Add page numbers, headers, footers
 - Manage annotations and redactions
 - Modify PDF metadata

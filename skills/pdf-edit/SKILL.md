@@ -17,7 +17,7 @@ Use this skill when the user needs to:
 - Add text or image watermarks
 - Insert text, images, or vector graphics into PDF pages
 - Encrypt or decrypt PDF files
-- Add or remove annotations
+- Add or remove annotations (highlights, comments, sticky notes)
 - Delete, reorder, or duplicate pages
 - Add headers, footers, or page numbers
 - Redact sensitive content
@@ -150,6 +150,72 @@ doc.save("decrypted.pdf", encryption=fitz.PDF_ENCRYPT_NONE)
 doc.close()
 ```
 
+### Add Highlight Annotation
+
+Highlight specific text in a PDF:
+
+```python
+import fitz
+
+doc = fitz.open("input.pdf")
+page = doc[0]
+
+# Search for text to highlight
+areas = page.search_for("target text")
+for area in areas:
+    annot = page.add_highlight_annot(area)
+    annot.set_colors({"stroke": (1, 0, 0)})  # Red highlight
+    annot.update()
+
+doc.save("highlighted.pdf")
+doc.close()
+```
+
+### Add Comment/Note Annotation
+
+Add a sticky note comment at a specific position:
+
+```python
+import fitz
+
+doc = fitz.open("input.pdf")
+page = doc[0]
+
+point = fitz.Point(100, 100)  # Position on page
+text_annot = page.add_text_annot(point, "This is a comment")
+text_annot.update()
+
+doc.save("with_comment.pdf")
+doc.close()
+```
+
+### Highlight Text and Add Comment
+
+Combine highlighting with an attached comment:
+
+```python
+import fitz
+
+doc = fitz.open("input.pdf")
+page = doc[0]
+
+areas = page.search_for("error text")
+if areas:
+    area = areas[0]
+    # Highlight the text
+    annot = page.add_highlight_annot(area)
+    annot.set_colors({"stroke": (1, 0.5, 0)})  # Orange
+    annot.update()
+    
+    # Add comment next to highlight
+    comment_point = fitz.Point(area.x1 + 10, area.y0)
+    text_annot = page.add_text_annot(comment_point, "Problem here")
+    text_annot.update()
+
+doc.save("annotated.pdf")
+doc.close()
+```
+
 ## Common Workflows
 
 ### Workflow 1: Merge Multiple PDFs
@@ -216,6 +282,15 @@ Check if PyMuPDF is properly installed.
 
 ```bash
 python scripts/validate_install.py
+```
+
+### highlight_text.py
+
+Highlight text in a PDF with optional comment.
+
+```bash
+python scripts/highlight_text.py input.pdf -t "target text" -o highlighted.pdf
+python scripts/highlight_text.py input.pdf -t "error" -c "Fix this" -o annotated.pdf
 ```
 
 ## Best Practices
